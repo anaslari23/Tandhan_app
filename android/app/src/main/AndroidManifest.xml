@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="footwearr_app"
+        android:label="Tandhan"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/tandhan_app_logo">
         <activity
             android:name=".MainActivity"
             android:exported="true"

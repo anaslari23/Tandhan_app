@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'dashboard.dart';
+import 'signup_via_aadhar.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final String language = ModalRoute.of(context)!.settings.arguments as String;
+    final String? language = ModalRoute.of(context)!.settings.arguments as String?;
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -14,7 +16,6 @@ class LoginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 40),
-
               Text(
                 language == 'English' ? 'WELCOME' : 'स्वागत है', // Example for Hindi
                 style: TextStyle(
@@ -23,11 +24,16 @@ class LoginScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-
               const SizedBox(height: 30),
-
               // Username Text Field
               TextField(
+                onChanged: (value) {
+                  // Check if the fields are not empty to enable the button
+                  // You can add more checks if necessary
+                  if (value.isNotEmpty) {
+                    // Enable the button
+                  }
+                },
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
@@ -37,12 +43,17 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
               const SizedBox(height: 15),
-
               // Password Text Field
               TextField(
                 obscureText: true,
+                onChanged: (value) {
+                  // Check if the fields are not empty to enable the button
+                  // You can add more checks if necessary
+                  if (value.isNotEmpty) {
+                    // Enable the button
+                  }
+                },
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
@@ -52,13 +63,14 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
               const SizedBox(height: 25),
-
               // Login Button
               ElevatedButton(
                 onPressed: () {
-                  // Add login logic here
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Dashboard()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
@@ -69,34 +81,18 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-
               const SizedBox(height: 15),
-
               // "New User? Sign Up" Text
               TextButton(
                 onPressed: () {
-                  // Navigate to sign-up screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignupViaAadhar()),
+                  );
                 },
                 child: Text(
                   language == 'English' ? 'New User? Sign Up' : 'नया उपयोगकर्ता? साइन अप करें', // Example for Hindi
                   style: TextStyle(color: Colors.white),
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              // Skip Button
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/dashboard');
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  minimumSize: const Size(double.infinity, 50),
-                ),
-                child: Text(
-                  language == 'English' ? 'Skip' : 'छोड़ें', // Example for Hindi
-                  style: TextStyle(fontSize: 18),
                 ),
               ),
             ],

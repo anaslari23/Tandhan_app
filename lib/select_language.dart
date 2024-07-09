@@ -8,10 +8,7 @@ class SelectLanguage extends StatefulWidget {
 class _SelectLanguageState extends State<SelectLanguage> {
   final List<String> _languages = [
     'English',
-    'Assamese', 'Bengali', 'Bodo', 'Dogri', 'Gujarati', 'Hindi', 'Kannada',
-    'Kashmiri', 'Konkani', 'Maithili', 'Malayalam', 'Manipuri', 'Marathi',
-    'Nepali', 'Odia', 'Punjabi', 'Sanskrit', 'Santali', 'Sindhi', 'Tamil',
-    'Telugu', 'Urdu'
+    'Hindi',
   ];
   String? _selectedLanguage;
 
@@ -69,19 +66,8 @@ class _SelectLanguageState extends State<SelectLanguage> {
                 child: Text('Submit'),
               ),
               SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/login',
-                    arguments: 'English',
-                  );
-                },
-                child: Text('Skip'),
-              ),
-              SizedBox(height: 20),
               Text(
-                'Select your preferred language from the drop-down menu or skip to proceed in English',
+                'Select your preferred language from the drop-down menu to proceed',
                 textAlign: TextAlign.center,
               ),
             ],
